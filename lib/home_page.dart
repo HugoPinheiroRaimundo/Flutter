@@ -49,20 +49,26 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: const Text('Curso Flutter'),
       ),
-      body: Center(
-        child: Text('Quantidades de clicks no botão $counter'),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {
-          setState(() {
-            // Controlar o estado
-            counter++;
-          });
-        },
-      ),
+      body: SizedBox(
+          width: double.infinity,
+          height: double.infinity,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                for (var i = 0; i < 10; i++)
+                  Container(
+                    width: double.infinity,
+                    height: 80,
+                    margin: const EdgeInsets.all(15),
+                    color: Colors.deepPurple,
+                  ),
+              ],
+            ),
+          )),
     );
   }
 }
