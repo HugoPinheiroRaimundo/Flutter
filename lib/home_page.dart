@@ -47,28 +47,24 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final names = ['Bud', 'Jao', 'Pan', 'Athena', 'Hugo'];
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Curso Flutter'),
       ),
       body: SizedBox(
-          width: double.infinity,
-          height: double.infinity,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                for (var i = 0; i < 10; i++)
-                  Container(
-                    width: double.infinity,
-                    height: 80,
-                    margin: const EdgeInsets.all(15),
-                    color: Colors.deepPurple,
-                  ),
-              ],
-            ),
-          )),
+        width: double.infinity,
+        height: double.infinity,
+        child: ListView.builder(
+            itemCount: names.length,
+            itemBuilder: (context, index) {
+              final name = names[index];
+              return ListTile(
+                title: Text(name),
+              );
+            }),
+      ),
     );
   }
 }
